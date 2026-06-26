@@ -1,6 +1,10 @@
 from fastapi import FastAPI
 from scalar_fastapi import get_scalar_api_reference
 from app.routers import movies, health
+from app.database import engine
+from app import models
+
+models.Base.metadata.create_all(bind=engine)
 
 app = FastAPI(
     title="Movies API",
