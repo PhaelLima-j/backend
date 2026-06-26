@@ -35,3 +35,51 @@ Não é obrigatório utilizar todas as as tecnologias sugeridas, mas será um di
 Qualquer dúvida / sugestão / melhoria / orientação adicional só enviar email para hendrix@wattio.com.br
 
 Salve!
+
+# Movies API
+
+API REST para gerenciamento de filmes, desenvolvida com FastAPI e SQLite.
+
+## Tecnologias
+- Python 3.14
+- FastAPI
+- SQLAlchemy
+- SQLite
+- Docker
+
+## Como rodar
+
+### Com Docker
+```bash
+docker-compose up
+```
+
+### Sem Docker
+```bash
+pip install -r requirements.txt
+uvicorn app.main:app --reload
+```
+
+## Rotas
+| Método | Rota | Descrição |
+|--------|------|-----------|
+| GET | /movies | Lista todos os filmes |
+| GET | /movies/{id} | Busca filme por ID |
+| POST | /movies | Cadastra um novo filme |
+| PUT | /movies/{id} | Atualiza um filme |
+| DELETE | /movies/{id} | Remove um filme |
+
+## Documentação (Utilizei o Scalar)
+Após subir a aplicação, acesse:
+http://localhost:8000/docs
+
+## Testes
+```bash
+pytest tests/
+```
+
+## Seed
+Para popular o banco com dados iniciais:
+```bash
+python seed.py
+```
