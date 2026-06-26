@@ -6,6 +6,7 @@ from app import models
 
 models.Base.metadata.create_all(bind=engine)
 
+# Configuraçoes iniciais do FastAPI
 app = FastAPI(
     title="Movies API",
     description="CRUD de Filmes",
@@ -13,9 +14,11 @@ app = FastAPI(
     docs_url=None
 )
 
+# Inclusão das rotas
 app.include_router(movies.router)
 app.include_router(health.router)
 
+# Inclusão do scalar, ao inves da documentaçao padrao do fastapi
 @app.get("/docs", include_in_schema=False)
 def scalar_docs():
     return get_scalar_api_reference(
