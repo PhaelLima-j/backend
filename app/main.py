@@ -3,6 +3,13 @@ from scalar_fastapi import get_scalar_api_reference
 from app.routers import movies, health
 from app.database import engine
 from app import models
+import logging
+
+# Configuraçãp do logging
+logging.basicConfig(
+    level=logging.INFO,
+    format="%(asctime)s - %(name)s - %(levelname)s - %(message)s"
+)
 
 models.Base.metadata.create_all(bind=engine)
 
