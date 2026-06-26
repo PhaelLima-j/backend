@@ -12,7 +12,7 @@ def get_movies(db: Session = Depends(get_db)):
 
 @router.get("/{movie_id}", response_model=schemas.MovieResponse)
 def get_movie(movie_id: int, db: Session = Depends(get_db)):
-    movie = crud.get_movie(db, movie_id)
+    movie = crud.get_movie_by_id(db, movie_id)
     if not movie:
         raise HTTPException(status_code=404, detail="Filme não encontrado")
     return movie
