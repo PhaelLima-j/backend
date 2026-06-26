@@ -1,0 +1,13 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+.env
+venv/
+
+# Banco
+*.db
+
+# PyCharm
+.idea/
+*.iml
